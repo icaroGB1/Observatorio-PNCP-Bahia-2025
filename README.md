@@ -22,3 +22,31 @@ A coleta, tratamento e análise dos dados foram concentrados nas modalidades de 
 *   **Pregão Eletrônico:** Análise da competitividade e economia gerada em processos eletrônicos.
 *   **Dispensa de Licitação:** Monitoramento das contratações diretas por valor ou emergência.
 *   **Inexigibilidade:** Acompanhamento de contratações de fornecedores exclusivos ou serviços técnicos especializados.
+
+## ⚙️ Pipeline ETL Completo
+
+Este projeto implementa um pipeline ETL (Extract, Transform, Load) robusto para garantir a integridade e a disponibilidade dos dados para análise.
+
+### 1. Extração (Extract) - `ETL/01_coleta_dados.py`
+*   **Descrição:** Script Python responsável por consumir a API do Portal Nacional de Contratações Públicas (PNCP) e extrair dados brutos de licitações e contratos. Inclui tratamento de `rate limiting` e `timeouts` para garantir a coleta eficiente.
+*   **Tecnologias:** 🐍 Python (Requests).
+
+### 2. Transformação (Transform) - `ETL/02_Limpeza_dados.py`
+*   **Descrição:** Script Python que realiza a limpeza, padronização e enriquecimento dos dados brutos. Inclui tratamento de valores nulos, conversão de tipos de dados e desnormalização de campos aninhados (JSON).
+*   **Tecnologias:** 🐍 Python (Pandas).
+
+### 3. Carga (Load) - `ETL/03_carga_banco.PY`
+*   **Descrição:** Script Python que carrega os dados transformados em um banco de dados PostgreSQL, garantindo a persistência e a estruturação dos dados para futuras consultas e visualizações.
+*   **Tecnologias:** 🐍 Python (SQLAlchemy), 🗄️ PostgreSQL.
+  
+  ## 📊 Próximos Passos: Visualização e Análise
+
+Com o pipeline ETL estabelecido e os dados estruturados no PostgreSQL, os próximos passos incluem:
+
+*   **Criação de Dashboards:** Desenvolvimento de painéis interativos no Power BI para visualização dos principais indicadores e tendências.
+*   **Análises Exploratórias:** Realização de análises aprofundadas para identificar anomalias, oportunidades de melhoria e insights estratégicos para a gestão pública.
+
+  ## ✉️ Redes Sociais
+
+*   **LinkedIn:** [in/icaro-gabriel-70a54233b](https://www.linkedin.com/in/icaro-gabriel-70a54233b/ )
+*   **Email:** [icarowp45@gmail.com](mailto:icarowp45@gmail.com)
