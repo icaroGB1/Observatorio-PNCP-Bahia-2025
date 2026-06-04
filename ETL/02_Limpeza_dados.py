@@ -135,7 +135,7 @@ df["porte_compra"] = df["valorTotalEstimado"].apply(porte_compra)
 # %%
 df["economia"]= df["diferenca_valor"].apply(economia)
 # %%
-df.to_csv("dados_limpos_PNCP.CSV")
+df.to_csv("dados_limpos_PNCP.CSV", index=False)
 # %%
 df
 # %%
