@@ -48,7 +48,7 @@ Análise e Storytelling
 
 📊 Dashboard - Panorama Geral
 
-![Dashboard](Docs/dashboard_panorama_geral.png)
+![Dashboard](Docs/pagina_1_panorama.png)
 
 Nesta primeira etapa foi desenvolvido um dashboard executivo para compreender o perfil geral das contratações públicas realizadas pelos órgãos e entidades do Estado da Bahia.
 
