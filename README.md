@@ -48,6 +48,8 @@ Análise e Storytelling
 
 📊 Dashboard - Panorama Geral
 
+![Dashboard](Docs/dashboard_panorama_geral.png)
+
 Nesta primeira etapa foi desenvolvido um dashboard executivo para compreender o perfil geral das contratações públicas realizadas pelos órgãos e entidades do Estado da Bahia.
 
 Principais Achados
@@ -57,6 +59,9 @@ Principais Achados
 3. **Relação direta:** Cerca de 96% das Dispensas estão associadas a compras de pequeno porte.
 4. **Destaque regional:** Excluindo Salvador, Senhor do Bonfim apresentou o maior volume de contratações registradas no período analisado.
 5. **Sazonalidade:** Observou-se redução no volume de publicações de contratações entre dezembro e janeiro, seguida de retomada nos meses subsequentes.
+
+📄 Visualizar Dashboard em PDF:
+[Observatorio_PNCP_Bahia_2025.pdf](Docs/Observatorio_PNCP_Bahia_2025.pdf)
 
 ⚠️ Observação sobre os Dados
 
