@@ -23,28 +23,20 @@ A coleta, tratamento e análise dos dados foram concentrados nas modalidades de 
 *   **Dispensa de Licitação:** Monitoramento das contratações diretas por valor ou emergência.
 *   **Inexigibilidade:** Acompanhamento de contratações de fornecedores exclusivos ou serviços técnicos especializados.
 
-🛠️ Tecnologias Utilizadas
-•	Python
-•	Pandas
-•	Requests
-•	PostgreSQL
-•	SQL
-•	Power BI
-•	Git
-•	GitHub
+## 🛠️ Tecnologias Utilizadas
 
-🔄 Arquitetura do Projeto
-PNCP API
-    ↓
-Python (Extração)
-    ↓
-Pandas (Transformação)
-    ↓
-PostgreSQL (Carga)
-    ↓
-Power BI
-    ↓
-Análise e Storytelling
+*   🐍 **Python** (Pandas, Requests, SQLAlchemy)
+*   🗄️ **SQL / PostgreSQL**
+*   📊 **Power BI**
+*   🐙 **Git & GitHub**
+
+## 🔄 Arquitetura do Projeto
+*   🌐 **PNCP API** (Fonte de Dados)
+*   ➡️ **Python** (Extração via Requests)
+*   ➡️ **Pandas** (Transformação e Limpeza)
+*   ➡️ **PostgreSQL** (Carga e Persistência)
+*   ➡️ **Power BI** (Visualização de Dados)
+*   ➡️ **Análise e Storytelling** (Insights de Negócio)
 
 📊 Dashboard - Panorama Geral
 
