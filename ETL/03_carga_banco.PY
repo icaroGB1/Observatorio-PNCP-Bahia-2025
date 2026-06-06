@@ -11,7 +11,7 @@ df.shape
 Definindo a URL do Banco de dados
 """
 usuario = "postgres"
-senha = "******"
+senha = "Icaro1303'"
 host = "localhost"
 porta = "5432"
 banco = "Contratacoes_PNCP_BA_2025"

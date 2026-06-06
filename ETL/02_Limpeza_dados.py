@@ -35,7 +35,7 @@ df.isna().sum()
 """
 Excluindo aqui o que eu não vou usar 
 """
-df = df.drop(columns=["linkProcessoEletronico", "emendaParlamentar", "fontesOrcamentarias", "orgaoSubRogado", "unidadeSubRogada", "justificativaPresencial", "linkSistemaOrigem", "usuarioNome" , "informacaoComplementar", "dataAtualizacaoGlobal"])
+df = df.drop(columns=["emendaParlamentar", "fontesOrcamentarias", "orgaoSubRogado", "unidadeSubRogada", "justificativaPresencial", "usuarioNome" , "informacaoComplementar", "dataAtualizacaoGlobal"])
 # %%
 """
 Excluindo Colunas redundantes que não vai ter serventias- Tirando as Colunas ID que tem o NOME
@@ -85,13 +85,33 @@ Verificando dados que não irei usar se tiverem incossistencia irei excluir a li
 01 - objetoCompra 3 null irei excluir esses 3
 02 - Usarei o datase onde somente valorTotalEstimado acima de 0 
 03 - Atualizando Ano da Compra que tiveram input errado fiz a retificação e excluir os que estão com o ano errado  - 10 Registro deixando ano somente de 2021 a 2026
-04 - tirando compras que passaram de 1 bilhão
 """
 df.isnull().sum()
 #%%
 df = df.dropna(subset=["objetoCompra"])
-# %%
+#%%
 df = df[df["valorTotalEstimado"] > 0]
+# %%
+"""
+Tratando valores nulos 
+"""
+
+df["homologado_preenchido"] = df["valorTotalHomologado"].notna()
+
+df["valorTotalHomologado"] = df["valorTotalHomologado"].fillna(0)
+
+df["abertura_preenchida"] = df["dataAberturaProposta"].notna()
+
+
+df["encerramento_preenchida"] = df["dataEncerramentoProposta"].notna()
+
+
+df["link_sistema_preenchido"] = df["linkSistemaOrigem"].notna()
+
+
+df["link_processo_preenchido"] = df["linkProcessoEletronico"].notna()
+
+
 # %%
 df.describe()
 # %%
@@ -99,16 +119,19 @@ df.describe()
 df["anoCompra"].value_counts()
 df = df[df["anoCompra"].between(2021, 2026)]
 # %%
-"""
-Tratando valor Nulo no valorTotalHomologado
-"""
-df["valorTotalHomologado"]  = df["valorTotalHomologado"].fillna(0)
-# %%
 df.isna().sum()
 # %%
 df.describe()
 # %%
-df = df[df["valorTotalEstimado"] <= 1_000_000_000]
+"""
+Limite definido a partir da análise exploratória.
+Valores acima do percentil 99,9 (~120 milhões)
+foram sinalizados para investigação.
+"""
+
+df["possivel_inconsistencia_valor"] = (
+    df["valorTotalEstimado"] > 120_000_000
+)
 # %%
 """
 Criando Novas Colunas
@@ -125,15 +148,9 @@ def porte_compra(x):
         return "Média"
     else:
         return "Grande"
-def economia (x):
-    if(x > 0):
-        return True
-    else:
-        return False
+
 # %%
 df["porte_compra"] = df["valorTotalEstimado"].apply(porte_compra)
-# %%
-df["economia"]= df["diferenca_valor"].apply(economia)
 # %%
 df.to_csv("dados_limpos_PNCP.CSV", index=False)
 # %%
