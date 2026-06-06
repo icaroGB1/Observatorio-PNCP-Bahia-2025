@@ -23,30 +23,54 @@ A coleta, tratamento e análise dos dados foram concentrados nas modalidades de 
 *   **Dispensa de Licitação:** Monitoramento das contratações diretas por valor ou emergência.
 *   **Inexigibilidade:** Acompanhamento de contratações de fornecedores exclusivos ou serviços técnicos especializados.
 
-## ⚙️ Pipeline ETL Completo
+🛠️ Tecnologias Utilizadas
+•	Python
+•	Pandas
+•	Requests
+•	PostgreSQL
+•	SQL
+•	Power BI
+•	Git
+•	GitHub
 
-Este projeto implementa um pipeline ETL (Extract, Transform, Load) robusto para garantir a integridade e a disponibilidade dos dados para análise.
+🔄 Arquitetura do Projeto
+PNCP API
+    ↓
+Python (Extração)
+    ↓
+Pandas (Transformação)
+    ↓
+PostgreSQL (Carga)
+    ↓
+Power BI
+    ↓
+Análise e Storytelling
 
-### 1. Extração (Extract) - `ETL/01_coleta_dados.py`
-*   **Descrição:** Script Python responsável por consumir a API do Portal Nacional de Contratações Públicas (PNCP) e extrair dados brutos de licitações e contratos. Inclui tratamento de `rate limiting` e `timeouts` para garantir a coleta eficiente.
-*   **Tecnologias:** 🐍 Python (Requests).
+📊 Dashboard - Panorama Geral
 
-### 2. Transformação (Transform) - `ETL/02_Limpeza_dados.py`
-*   **Descrição:** Script Python que realiza a limpeza, padronização e enriquecimento dos dados brutos. Inclui tratamento de valores nulos, conversão de tipos de dados e desnormalização de campos aninhados (JSON).
-*   **Tecnologias:** 🐍 Python (Pandas).
+Nesta primeira etapa foi desenvolvido um dashboard executivo para compreender o perfil geral das contratações públicas realizadas pelos órgãos e entidades do Estado da Bahia.
 
-### 3. Carga (Load) - `ETL/03_carga_banco.PY`
-*   **Descrição:** Script Python que carrega os dados transformados em um banco de dados PostgreSQL, garantindo a persistência e a estruturação dos dados para futuras consultas e visualizações.
-*   **Tecnologias:** 🐍 Python (SQLAlchemy), 🗄️ PostgreSQL.
-  
-  ## 📊 Próximos Passos: Visualização e Análise
+Principais Achados
 
-Com o pipeline ETL estabelecido e os dados estruturados no PostgreSQL, os próximos passos incluem:
+1. **Predomínio de dispensas:** Mais da metade das contratações registradas ocorreu por meio de Dispensa de Licitação.
+2. **Contratações de pequeno porte:** Aproximadamente 67% das contratações estão classificadas como de pequeno porte (até R$ 80 mil).
+3. **Relação direta:** Cerca de 96% das Dispensas estão associadas a compras de pequeno porte.
+4. **Destaque regional:** Excluindo Salvador, Senhor do Bonfim apresentou o maior volume de contratações registradas no período analisado.
+5. **Sazonalidade:** Observou-se redução no volume de publicações de contratações entre dezembro e janeiro, seguida de retomada nos meses subsequentes.
 
-*   **Criação de Dashboards:** Desenvolvimento de painéis interativos no Power BI para visualização dos principais indicadores e tendências.
-*   **Análises Exploratórias:** Realização de análises aprofundadas para identificar anomalias, oportunidades de melhoria e insights estratégicos para a gestão pública.
+⚠️ Observação sobre os Dados
 
-  ## ✉️ Redes Sociais
+Os resultados apresentados refletem exclusivamente os dados disponibilizados pelo Portal Nacional de Contratações Públicas (PNCP).
 
-*   **LinkedIn:** [in/icaro-gabriel-70a54233b](https://www.linkedin.com/in/icaro-gabriel-70a54233b/ )
-*   **Email:** [icarowp45@gmail.com](mailto:icarowp45@gmail.com)
+Durante a análise exploratória foram identificados registros com valores extremamente elevados quando comparados à distribuição geral da base. Esses casos serão investigados em uma etapa específica dedicada à qualidade e consistência dos dados disponibilizados pelo PNCP.
+
+Portanto, os indicadores apresentados neste painel devem ser interpretados considerando as limitações inerentes à base pública analisada.
+
+🚧 Próximas Etapas
+
+* **Análise Financeira das Contratações Públicas**
+* **Qualidade e Transparência dos Dados do PNCP**
+* **Investigação de Valores Potencialmente Inconsistentes**
+* **Análise de Economia Gerada nas Contratações**
+* **Consolidação do Dashboard Analítico Final**
+
